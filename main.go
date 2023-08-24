@@ -15,6 +15,8 @@ func multiply(a, b int) int {
 // }
 
 func lenAndUpper(name string) (length int, uppercase string) {
+	// function이 값을 return하고 나면 실행
+	defer fmt.Println("I'm done")
 	length = len(name)
 	uppercase = strings.ToUpper(name)
 	return
