@@ -5,8 +5,8 @@ import (
 )
 
 func superAdd(numbers ...int) int {
-	for number := range numbers {
-		fmt.Println(number)
+	for index, number := range numbers {
+		fmt.Println(index, number)
 	}
 	return 1
 }
