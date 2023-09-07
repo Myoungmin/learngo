@@ -5,13 +5,14 @@ import (
 )
 
 func canIDrink(age int) bool {
-	// 조건을 체크하기 전에 variable을 만들 수 있다
-	if koreanAge := age + 2; koreanAge < 20 {
+	switch {
+	case age < 19:
 		return false
+	case age >= 19:
+		return true
 	}
-	return true
+	return false
 }
-
 func main() {
 	fmt.Println(canIDrink(16))
 }
