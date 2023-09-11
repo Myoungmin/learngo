@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
 	nico := map[string]string{"name": "nico", "age": "12"}
