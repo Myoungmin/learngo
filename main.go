@@ -1,18 +1,32 @@
+// package accounts
+
+// import (
+// 	"fmt"
+
+// 	"github.com/Myoungmin/learngo/accounts"
+// )
+
+// func main_accounts() {
+// 	account := accounts.NewAccount("nico")
+// 	account.Deposit(10)
+// 	err := account.Withdraw(20)
+// 	if err != nil {
+// 		fmt.Println(err)
+// 	}
+// 	fmt.Println(account.Balance(), account.Owner())
+// 	fmt.Println(account)
+// }
+
 package main
 
 import (
 	"fmt"
 
-	"github.com/Myoungmin/learngo/accounts"
+	"github.com/Myoungmin/learngo/mydict"
 )
 
 func main() {
-	account := accounts.NewAccount("nico")
-	account.Deposit(10)
-	err := account.Withdraw(20)
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println(account.Balance(), account.Owner())
-	fmt.Println(account)
+	dictionary := mydict.Dictionary{}
+	dictionary["hello"] = "hello"
+	fmt.Println(dictionary)
 }
