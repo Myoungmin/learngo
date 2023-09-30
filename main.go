@@ -51,6 +51,7 @@ import (
 var errRequestFailed = errors.New("Request failed")
 
 func main() {
+	var results = make(map[string]string)
 	urls := []string{
 		"https://www.airbnb.com/",
 		"https://www.google.com/",
@@ -62,6 +63,7 @@ func main() {
 		"https://www.instagram.com/",
 		"https://academy.nomadcoders.co/",
 	}
+	results["gello"] = "Hello"
 	for _, url := range urls {
 		hitURL(url)
 	}
