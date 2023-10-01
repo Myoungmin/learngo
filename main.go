@@ -63,9 +63,16 @@ func main() {
 		"https://www.instagram.com/",
 		"https://academy.nomadcoders.co/",
 	}
-	results["gello"] = "Hello"
 	for _, url := range urls {
-		hitURL(url)
+		result := "OK"
+		err := hitURL(url)
+		if err != nil {
+			result = "FAILED"
+		}
+		results[url] = result
+	}
+	for url, result := range results {
+		fmt.Println(url, result)
 	}
 }
 
