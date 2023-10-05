@@ -95,7 +95,7 @@ import (
 
 func main() {
 	go sexyCount("nico")
-	sexyCount("flynn")
+	go sexyCount("flynn")
 }
 
 func sexyCount(person string) {
