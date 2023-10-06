@@ -96,6 +96,8 @@ import (
 func main() {
 	go sexyCount("nico")
 	go sexyCount("flynn")
+
+	time.Sleep(time.Second * 5)
 }
 
 func sexyCount(person string) {
