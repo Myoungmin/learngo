@@ -100,9 +100,13 @@ func main() {
 		go isSexy(person, c)
 	}
 	fmt.Println(<-c)
+	fmt.Println(<-c)
+	// 아래까지 추가하면 deadlock 발생
+	//fmt.Println(<-c)
 }
 
 func isSexy(person string, c chan bool) {
 	time.Sleep(time.Second * 5)
+	fmt.Println(person)
 	c <- true
 }
