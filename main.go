@@ -94,19 +94,18 @@ import (
 )
 
 func main() {
-	c := make(chan bool)
+	c := make(chan string)
 	people := [2]string{"nico", "flynn"}
 	for _, person := range people {
 		go isSexy(person, c)
 	}
-	fmt.Println(<-c)
-	fmt.Println(<-c)
-	// 아래까지 추가하면 deadlock 발생
-	//fmt.Println(<-c)
+	// Blocking Operation이라 이 작업이 끝날 때까지 메인함수가 멈춘다.
+	// 우리가 채널로부터 메시지를 얻고 있다는 뜻
+	fmt.Println("Received this message: ", <-c)
+	fmt.Println("Received this message: ", <-c)
 }
 
-func isSexy(person string, c chan bool) {
+func isSexy(person string, c chan string) {
 	time.Sleep(time.Second * 5)
-	fmt.Println(person)
-	c <- true
+	c <- person + "is sexy"
 }
