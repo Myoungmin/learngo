@@ -99,10 +99,10 @@ func main() {
 	for _, person := range people {
 		go isSexy(person, c)
 	}
-	// Blocking Operation이라 이 작업이 끝날 때까지 메인함수가 멈춘다.
-	// 우리가 채널로부터 메시지를 얻고 있다는 뜻
-	fmt.Println("Received this message: ", <-c)
-	fmt.Println("Received this message: ", <-c)
+	fmt.Println("Waiting for messages")
+	for i := 0; i < len(people); i++ {
+		fmt.Println(<-c)
+	}
 }
 
 func isSexy(person string, c chan string) {
