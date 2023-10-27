@@ -95,13 +95,14 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
-var baseURL string = "https://kr.indeed.com/job?q=python&limit=50"
+var baseURL string = "https://www.saramin.co.kr/zf_user/search/recruit?&searchword=python"
 
 func main() {
 	getPages()
@@ -114,7 +115,9 @@ func getPages() int {
 
 	defer res.Body.Close()
 
-	_, err = goquery.NewDocumentFromReader(res.Body)
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+
+	fmt.Println(doc)
 
 	return 0
 }
