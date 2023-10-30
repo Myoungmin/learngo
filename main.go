@@ -105,10 +105,12 @@ import (
 var baseURL string = "https://www.saramin.co.kr/zf_user/search/recruit?&searchword=python"
 
 func main() {
-	getPages()
+	totalPages := getPages()
+	fmt.Println(totalPages)
 }
 
 func getPages() int {
+	pages := 0
 	res, err := http.Get(baseURL)
 	checkErr(err)
 	checkCode(res)
@@ -119,10 +121,10 @@ func getPages() int {
 	checkErr(err)
 
 	doc.Find(".pagination").Each(func(i int, s *goquery.Selection) {
-		fmt.Println(s.Find("a").Length())
+		pages = s.Find("a").Length()
 	})
 
-	return 0
+	return pages
 }
 
 func checkErr(err error) {
